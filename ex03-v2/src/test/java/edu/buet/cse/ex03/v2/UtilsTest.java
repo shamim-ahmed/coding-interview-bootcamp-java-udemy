@@ -29,4 +29,9 @@ public class UtilsTest {
     assertEquals("result is different than expected", -54321, result);
   }
 
+  @Test
+  public void testWithZero() {
+    int result = Utils.reverse(-900);
+    assertEquals("result is different than expected", -9, result);
+  }
 }
