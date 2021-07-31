@@ -14,6 +14,8 @@ public class Utils {
     Map<Character, Integer> charMap = new HashMap<>();
 
     char[] data = str.toCharArray();
+    int maxValue = 0;
+    char maxChar = 0;
 
     for (char c : data) {
       Integer n = charMap.get(c);
@@ -25,14 +27,6 @@ public class Utils {
       }
 
       charMap.put(c, n);
-    }
-
-    int maxValue = 0;
-    char maxChar = 0;
-
-    for (Map.Entry<Character, Integer> entry : charMap.entrySet()) {
-      char c = entry.getKey();
-      int n = entry.getValue();
 
       if (n > maxValue) {
         maxValue = n;
