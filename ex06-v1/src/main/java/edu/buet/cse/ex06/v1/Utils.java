@@ -13,26 +13,28 @@ public class Utils {
     int r = values.length % n;
 
     for (int i = 0; i < q; i++) {
-      int start = i * n;
-      int[] data = new int[n];
-
-      for (int j = 0; j < data.length; j++) {
-        data[j] = values[start + j];
-      }
-
+      int startIndex = i * n;
+      int[] data = copyValues(values, startIndex, n);
       resultList.add(data);
     }
 
     if (r > 0) {
-      int[] data = new int[r];
-      for (int i = 0; i < r; i++) {
-        data[i] = values[q * n + i];
-      }
-
+      int startIndex = q * n;
+      int[] data = copyValues(values, startIndex, r);
       resultList.add(data);
     }
 
     resultList.stream().forEach(a -> System.out.println(Arrays.toString(a)));
+  }
+
+  private static int[] copyValues(int[] source, int sourceIndex, int count) {
+    int[] data = new int[count];
+
+    for (int j = 0; j < data.length; j++) {
+      data[j] = source[sourceIndex + j];
+    }
+
+    return data;
   }
 
   public static void main(String... args) {
