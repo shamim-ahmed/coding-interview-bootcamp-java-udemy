@@ -7,7 +7,7 @@ import org.junit.Test;
 public class UtilsTest {
   @Test
   public void testForAnagram() {
-    assertTrue(Utils.isAnagram("debit card", "bad credit"));
+    assertTrue(Utils.isAnagram("Debit card", "Bad credit"));
     assertTrue(Utils.isAnagram("Dormitory",  "Dirty room"));
     assertTrue(Utils.isAnagram("Conversation", "Voices rant on"));
     assertTrue(Utils.isAnagram("elbow", "below"));

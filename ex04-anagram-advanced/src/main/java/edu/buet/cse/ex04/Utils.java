@@ -1,12 +1,12 @@
 package edu.buet.cse.ex04;
 
-import java.util.Arrays;
+import java.util.TreeMap;
 
 public class Utils {
   private Utils() {}
 
   /**
-   * Simple anagram detector. Does not support spaces
+   * Anagram detection with spaces and different case
    * 
    * @param str1 a String
    * @param str2 a String
@@ -17,24 +17,48 @@ public class Utils {
       return false;
     }
 
-    char[] data1 = convertToArray(str1);
-    char[] data2 = convertToArray(str2);
+    TreeMap<Character, Integer> countMap1 = findCharacterCount(str1);
+    TreeMap<Character, Integer> countMap2 = findCharacterCount(str2);
 
-    Arrays.sort(data1);
-    Arrays.sort(data2);
+    if (countMap1.size() != countMap2.size()) {
+      return false;
+    }
 
-    return Arrays.equals(data1, data2);
-  }
+    boolean result = true;
 
-  private static char[] convertToArray(String str) {
-    StringBuilder builder = new StringBuilder();
+    for (Character c : countMap1.keySet()) {
+      Integer n1 = countMap1.get(c);
+      Integer n2 = countMap2.get(c);
 
-    for (char c : str.toLowerCase().toCharArray()) {
-      if (c != ' ') {
-        builder.append(c);
+      if (n1 == null || !n1.equals(n2)) {
+        result = false;
+        break;
       }
     }
 
-    return builder.toString().toCharArray();
+    return result;
+  }
+
+  private static TreeMap<Character, Integer> findCharacterCount(String str) {
+    char[] data = str.toLowerCase().toCharArray();
+    TreeMap<Character, Integer> resultMap = new TreeMap<>();
+
+    for (char c : data) {
+      if (c == ' ') {
+        continue;
+      }
+
+      Integer n = resultMap.get(c);
+
+      if (n == null) {
+        n = 1;
+      } else {
+        n += 1;
+      }
+
+      resultMap.put(c, n);
+    }
+
+    return resultMap;
   }
 }
