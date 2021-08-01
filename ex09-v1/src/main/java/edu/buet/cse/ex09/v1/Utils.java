@@ -3,7 +3,7 @@ package edu.buet.cse.ex09.v1;
 public class Utils {
   private Utils() {}
 
-  public static String steps(int n) {
+  public static void steps(int n) {
     StringBuilder resultBuilder = new StringBuilder();
 
     for (int i = 1; i <= n; i++) {
@@ -18,6 +18,10 @@ public class Utils {
       resultBuilder.append('\n');
     }
 
-    return resultBuilder.toString();
+    System.out.print(resultBuilder.toString());
+  }
+
+  public static void main(String... args) {
+    steps(3);
   }
 }
