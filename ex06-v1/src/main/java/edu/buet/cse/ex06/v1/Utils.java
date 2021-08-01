@@ -1,11 +1,9 @@
 package edu.buet.cse.ex06.v1;
 
-import java.util.Arrays;
-
 public class Utils {
   private Utils() {}
 
-  public static void chunk(int[] values, int n) {
+  public static int[][] chunk(int[] values, int n) {
     int[][] resultArray = null;
     int q = values.length / n;
     int r = values.length % n;
@@ -26,7 +24,7 @@ public class Utils {
       resultArray[q] = copyValues(values, startIndex, r);
     }
 
-    System.out.println(Arrays.deepToString(resultArray));
+    return resultArray;
   }
 
   private static int[] copyValues(int[] source, int sourceIndex, int count) {
@@ -37,9 +35,5 @@ public class Utils {
     }
 
     return data;
-  }
-
-  public static void main(String... args) {
-    chunk(new int[] {1, 2, 3, 4, 5, 6, 7, 8}, 3);
   }
 }
