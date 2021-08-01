@@ -7,6 +7,10 @@
   <name>ex03-v1</name>
   <description>Reverse an integer</description>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
