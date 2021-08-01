@@ -7,6 +7,10 @@
   <name>ex06-v1</name>
   <description>Solution to array chunking problem</description>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
