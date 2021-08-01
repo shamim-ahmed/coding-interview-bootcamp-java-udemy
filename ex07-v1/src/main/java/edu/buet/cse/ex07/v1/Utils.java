@@ -1,6 +1,7 @@
 package edu.buet.cse.ex07.v1;
 
-import java.util.TreeMap;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Utils {
   private Utils() {}
@@ -17,8 +18,8 @@ public class Utils {
       return false;
     }
 
-    TreeMap<Character, Integer> countMap1 = findCharacterCount(str1);
-    TreeMap<Character, Integer> countMap2 = findCharacterCount(str2);
+    Map<Character, Integer> countMap1 = getCharacterMap(str1);
+    Map<Character, Integer> countMap2 = getCharacterMap(str2);
 
     if (countMap1.size() != countMap2.size()) {
       return false;
@@ -39,9 +40,9 @@ public class Utils {
     return result;
   }
 
-  private static TreeMap<Character, Integer> findCharacterCount(String str) {
+  private static Map<Character, Integer> getCharacterMap(String str) {
     char[] data = str.toLowerCase().toCharArray();
-    TreeMap<Character, Integer> resultMap = new TreeMap<>();
+    Map<Character, Integer> resultMap = new HashMap<>();
 
     for (char c : data) {
       if (!Character.isAlphabetic(c)) {
