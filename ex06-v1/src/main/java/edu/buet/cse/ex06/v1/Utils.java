@@ -1,30 +1,32 @@
 package edu.buet.cse.ex06.v1;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Utils {
   private Utils() {}
 
   public static void chunk(int[] values, int n) {
-    List<int[]> resultList = new ArrayList<>();
+    int[][] resultArray = null;
     int q = values.length / n;
     int r = values.length % n;
 
+    if (r > 0) {
+      resultArray = new int[q + 1][];
+    } else {
+      resultArray = new int[q][];
+    }
+
     for (int i = 0; i < q; i++) {
       int startIndex = i * n;
-      int[] data = copyValues(values, startIndex, n);
-      resultList.add(data);
+      resultArray[i] = copyValues(values, startIndex, n);
     }
 
     if (r > 0) {
       int startIndex = q * n;
-      int[] data = copyValues(values, startIndex, r);
-      resultList.add(data);
+      resultArray[q] = copyValues(values, startIndex, r);
     }
 
-    resultList.stream().forEach(a -> System.out.println(Arrays.toString(a)));
+    System.out.println(Arrays.deepToString(resultArray));
   }
 
   private static int[] copyValues(int[] source, int sourceIndex, int count) {
